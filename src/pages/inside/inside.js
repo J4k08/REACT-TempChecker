@@ -9,12 +9,10 @@ class Inside extends Component {
     constructor(props) {
         super(props);
 
-        //this.findLocation = this.findLocation.bind(this);
-        //this.clickLocation = this.clickLocation.bind(this);
         this.state = {
             longitude: null,
             latitude: null,
-            openWeatherApiKey: '3ea28eee554fc9e1aa033a7bfc49af2a',
+            openWeatherApiKey: process.env.REACT_APP_OPEN_WEATHER_API_KEY,
             openWeatherBaseUrl: 'https://api.openweathermap.org/data/2.5/weather?APPID=',
             insideTemp: null
         }

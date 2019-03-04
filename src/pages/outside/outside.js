@@ -13,11 +13,11 @@ class Outside extends Component {
         this.state = {
             longitude: null,
             latitude: null,
-            openWeatherApiKey: '3ea28eee554fc9e1aa033a7bfc49af2a',
+            openWeatherApiKey: process.env.REACT_APP_OPEN_WEATHER_API_KEY,
             openWeatherBaseUrl: 'https://api.openweathermap.org/data/2.5/weather?APPID=',
             googleBaseUrl: 'https://maps.googleapis.com/maps/api/geocode/json?address=',
             googleApiQuery: ',+CA&key=',
-            googleApiKey: 'AIzaSyA93lTcWHYKNauKyPDBCIs39Cv4rr0b9cE',
+            googleApiKey: process.env.REACT_APP_GOOGLE_API_KEY,
             address: "",
             temperature: 0
         }
@@ -35,7 +35,9 @@ class Outside extends Component {
             })
         }*/
     };
-    getAddress() {
+    getAddress(e) {
+
+        e.preventDefault();
 
         axios.get(this.state.googleBaseUrl + this.state.address + this.state.googleApiQuery + this.state.googleApiKey)
             .then(response => {
