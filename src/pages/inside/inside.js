@@ -9,8 +9,8 @@ class Inside extends Component {
     constructor(props) {
         super(props);
 
-        this.findLocation = this.findLocation.bind(this);
-        this.clickLocation = this.clickLocation.bind(this);
+        //this.findLocation = this.findLocation.bind(this);
+        //this.clickLocation = this.clickLocation.bind(this);
         this.state = {
             longitude: null,
             latitude: null,
@@ -51,11 +51,10 @@ class Inside extends Component {
         axios.get(this.state.openWeatherBaseUrl + this.state.openWeatherApiKey + '&units=metric&lat='+ this.state.latitude +'&lon='+ this.state.longitude)
             .then(response => {
                 console.log(response);
-                console.log(_.get(response, 'data.main.temp', 0))
+                console.log(_.get(response, 'data.main.temp', 0));
                 this.setState({insideTemp: response.data.main.temp});
             })
     }
-
 
     render() {
         return (

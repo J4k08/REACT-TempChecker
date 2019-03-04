@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
-import { Switch, Route, HashRouter } from 'react-router-dom'
+import {Switch, Route, HashRouter, NavLink} from 'react-router-dom'
 import './App.css';
 
 import Inside from './pages/inside/inside'
@@ -21,6 +21,8 @@ class App extends Component {
                   <h1>Temperature Checker</h1>
 
                       <div className="content">
+
+                          <li> <NavLink to="/outside">Outside</NavLink> </li>
 
                           <Switch>
                           <Route exact path="/inside" component={Inside}/>
